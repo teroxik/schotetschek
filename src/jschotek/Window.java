@@ -49,9 +49,10 @@ public class Window extends JPanel implements ActionListener
    
     ImageIcon ota;
     ImageIcon schotek; 
-    Boolean switchSchotek = true;
+    int switcher = 1;
+    
 
-    Integer order = 1;
+    /*Integer order = 1;*/
     public Window()
     {
       
@@ -70,17 +71,17 @@ public class Window extends JPanel implements ActionListener
     void jbInit()
         throws Exception
     {
-    	Boolean run = true;
+    	/*Boolean run = true;*/
     	Integer i = 1;
     	messages = new HashMap<Integer,String>();
-    	while(run) {
+    	while(res.keySet().size()>i) {
     		
     		try{
     	 	messages.put(i,res.getString(i.toString()));
     	 	i++;}
     		catch(Exception e){
     			e.printStackTrace();
-    		    run = false;
+    		    /*run = false;*/
     		}
     	}
     	
@@ -88,11 +89,11 @@ public class Window extends JPanel implements ActionListener
     	
     	
     	
-    	ota = createImageIcon("oto"+order+".jpg");
+    	ota = createImageIcon("mejra_1.jpg");
     	schotek = createImageIcon(SCHOTEK_PATH);
     	imageLabel = new JLabel(ota);
  
-         changeSchotek = new JButton("Do it like ota!!");
+         changeSchotek = new JButton("Do it like mejra!!");
          changeSchotek.addActionListener(this);
          
          randomText = new JLabel();
@@ -111,27 +112,33 @@ public class Window extends JPanel implements ActionListener
 
 
         public void actionPerformed(ActionEvent e) {
-        	order++;
-        	if(order>4)
-        		order = 1;
+        	/*order++;*/
+        	/*if(order>8)
+        		order = 1;*/
             //Handle open button action.
             if (e.getSource() == changeSchotek) {
                
-            	if(switchSchotek) {
+            	if((switcher%3)==0) {
             		//imageLabel.setIcon(schotek);
-            		changeSchotek.setText("Do it like schotetschek!!");
+            		changeSchotek.setText("Do it like mejra!!");
+            		imageLabel.setIcon( createImageIcon("mejra_"+((switcher%8)+1)+".jpg"));
+                	
             	}
-            	else {
+            	else if((switcher%3)==1) {
             		
             		changeSchotek.setText("Do it like ota!!");
-            	
+            		imageLabel.setIcon( createImageIcon("oto"+((switcher%4)+1)+".jpg"));
             	}
-            	imageLabel.setIcon( createImageIcon("oto"+order+".jpg"));
-            	switchSchotek = !switchSchotek;
+            	else if((switcher%3)==2)
+            	{
+            		changeSchotek.setText("Do it like schotetschek!!");
+            		imageLabel.setIcon( createImageIcon("schotek_"+((switcher%10)+1)+".gif"));
+            	}
             	imageLabel.repaint();
+            	switcher++;
             	changeSchotek.repaint();
             	randomText.setText(randomMessage());
-            
+            	
             
             }	
             
