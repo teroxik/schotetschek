@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 
 import java.io.*;
@@ -16,7 +17,10 @@ import java.security.cert.CertStore;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.ResourceBundle;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -27,18 +31,27 @@ public class Window extends JPanel implements ActionListener
 	
 	
 	
-	static private final String OTA_PATH = "oto.jpg";
-	static private final String SCHOTEK_PATH = "schotek.gif";;
+
+	static private final String SCHOTEK_PATH = "schotek.gif";
+	static private final String RES_PATH = "Res";
+	
+	
 	
 	static private final String newline = "\n";
 	
+	
+	private Map<Integer, String> messages;
+	private ResourceBundle res = ResourceBundle.getBundle("jschotek/"+RES_PATH);
+	
 	private JLabel imageLabel;
 	private JButton changeSchotek;
+	private JLabel randomText;
    
     ImageIcon ota;
     ImageIcon schotek; 
     Boolean switchSchotek = true;
 
+    Integer order = 1;
     public Window()
     {
       
@@ -57,14 +70,34 @@ public class Window extends JPanel implements ActionListener
     void jbInit()
         throws Exception
     {
-    	ota = createImageIcon(OTA_PATH);
+    	Boolean run = true;
+    	Integer i = 1;
+    	messages = new HashMap<Integer,String>();
+    	while(run) {
+    		
+    		try{
+    	 	messages.put(i,res.getString(i.toString()));
+    	 	i++;}
+    		catch(Exception e){
+    			e.printStackTrace();
+    		    run = false;
+    		}
+    	}
+    	
+    	
+    	
+    	
+    	
+    	ota = createImageIcon("oto"+order+".jpg");
     	schotek = createImageIcon(SCHOTEK_PATH);
     	imageLabel = new JLabel(ota);
  
          changeSchotek = new JButton("Do it like ota!!");
          changeSchotek.addActionListener(this);
          
-    
+         randomText = new JLabel();
+         randomText.setHorizontalAlignment(SwingConstants.CENTER);
+         randomText.setText("Test - text");
          
          //For layout purposes, put the buttons in a separate panel
          JPanel buttonPanel = new JPanel(); //use FlowLayout
@@ -73,28 +106,35 @@ public class Window extends JPanel implements ActionListener
        //Add the buttons and the log to this panel.
          add(buttonPanel, BorderLayout.PAGE_START);
          add(imageLabel, BorderLayout.CENTER);
-    
+         add(randomText, BorderLayout.PAGE_END);
     }
 
 
         public void actionPerformed(ActionEvent e) {
-
+        	order++;
+        	if(order>4)
+        		order = 1;
             //Handle open button action.
             if (e.getSource() == changeSchotek) {
                
             	if(switchSchotek) {
-            		imageLabel.setIcon(schotek);
-            		
+            		//imageLabel.setIcon(schotek);
+            		changeSchotek.setText("Do it like schotetschek!!");
             	}
             	else {
-            		imageLabel.setIcon(ota);
+            		
             		changeSchotek.setText("Do it like ota!!");
+            	
             	}
-                
+            	imageLabel.setIcon( createImageIcon("oto"+order+".jpg"));
             	switchSchotek = !switchSchotek;
             	imageLabel.repaint();
             	changeSchotek.repaint();
+            	randomText.setText(randomMessage());
+            
+            
             }	
+            
             
             this.repaint();
                
@@ -129,7 +169,10 @@ public class Window extends JPanel implements ActionListener
             frame.setVisible(true);
         }
 
-      
+       private String randomMessage() {
+    	   
+    	   return messages.get(new Long((Math.round(Math.random()*messages.size()))).intValue());
+       }
     }
 
 
