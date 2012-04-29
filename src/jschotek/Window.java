@@ -165,7 +165,7 @@ public class Window extends JPanel implements ActionListener
          */
         public static void createAndShowGUI() {
             //Create and set up the window.
-            JFrame frame = new JFrame("JSchotetschek v0.1");
+            JFrame frame = new JFrame("JSchotetschek v0.2");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             //Add content to the window.
