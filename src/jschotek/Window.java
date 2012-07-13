@@ -29,19 +29,8 @@ import java.awt.event.*;
 public class Window extends JPanel implements ActionListener
 {
 	
-	
-	
-
-	static private final String SCHOTEK_PATH = "schotek.gif";
-	static private final String RES_PATH = "Res";
-	
-	
-	
-	static private final String newline = "\n";
-	
-	
 	private Map<Integer, String> messages;
-	private ResourceBundle res = ResourceBundle.getBundle("jschotek/"+RES_PATH);
+	private ResourceBundle res = ResourceBundle.getBundle("jschotek/"+Constants.RES_PATH);
 	
 	private JLabel imageLabel;
 	private JButton changeSchotek;
@@ -85,12 +74,8 @@ public class Window extends JPanel implements ActionListener
     		}
     	}
     	
-    	
-    	
-    	
-    	
     	ota = createImageIcon("mejra_1.jpg");
-    	schotek = createImageIcon(SCHOTEK_PATH);
+    	schotek = createImageIcon(Constants.SCHOTEK_PATH);
     	imageLabel = new JLabel(ota);
  
          changeSchotek = new JButton("Do it like mejra!!");
