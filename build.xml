@@ -1,0 +1,42 @@
+<project name="schotek" default="jar">
+	<property name="build.dir" value="build" />
+	<property name="lib.dir" value="lib" />
+	<property name="dest.jar" value="build/jar/JSchotetschek.jar" />	
+	<property name="keystore.file" value="testKeys" />
+	<property name="keystore.pass" value="testtest" />
+    <property name="key.alias" value="jdc" />
+		
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes">
+        		<classpath>
+        		      <pathelement path="${classpath}"/>
+        		      <fileset dir="${lib.dir}">
+        		        <include name="**/*.jar"/>
+        		      </fileset>
+        		      <pathelement location="classes"/>
+        		      <dirset dir="${build.dir}">
+        		        <include name="classes"/>
+        		       <!-- <exclude name="apps/**/*Test*"/> -->
+        		      </dirset>
+        		</classpath>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="build/jar"/>
+        
+    	<jar destfile="${dest.jar}" basedir="build/classes" >
+            <manifest>
+                <attribute name="Main-Class" value="jschotek.Schotetschek"/>
+            </manifest>
+    		<zipfileset src="lib/junit-4.11-SNAPSHOT-20120416-1530.jar"/>
+    	</jar>
+        <signjar jar="${dest.jar}" alias="${key.alias}" keystore="${keystore.file}" storepass="${keystore.pass}"/>
+     </target>
+
+</project>

@@ -74,8 +74,8 @@ public class Window extends JPanel implements ActionListener
     		}
     	}
     	
-    	ota = createImageIcon("mejra_1.jpg");
-    	schotek = createImageIcon(Constants.SCHOTEK_PATH);
+    	ota = Constants.createImageIcon("mejra_1.jpg");
+    	schotek = Constants.createImageIcon(Constants.SCHOTEK_PATH);
     	imageLabel = new JLabel(ota);
  
          changeSchotek = new JButton("Do it like mejra!!");
@@ -106,18 +106,18 @@ public class Window extends JPanel implements ActionListener
             	if((switcher%3)==0) {
             		//imageLabel.setIcon(schotek);
             		changeSchotek.setText("Do it like mejra!!");
-            		imageLabel.setIcon( createImageIcon("mejra_"+((switcher%8)+1)+".jpg"));
+            		imageLabel.setIcon( Constants.createImageIcon("mejra_"+((switcher%8)+1)+".jpg"));
                 	
             	}
             	else if((switcher%3)==1) {
             		
             		changeSchotek.setText("Do it like ota!!");
-            		imageLabel.setIcon( createImageIcon("oto"+((switcher%4)+1)+".jpg"));
+            		imageLabel.setIcon( Constants.createImageIcon("oto"+((switcher%4)+1)+".jpg"));
             	}
             	else if((switcher%3)==2)
             	{
             		changeSchotek.setText("Do it like schotetschek!!");
-            		imageLabel.setIcon( createImageIcon("schotek_"+((switcher%10)+1)+".gif"));
+            		imageLabel.setIcon( Constants.createImageIcon("schotek_"+((switcher%10)+1)+".gif"));
             	}
             	imageLabel.repaint();
             	switcher++;
@@ -132,16 +132,7 @@ public class Window extends JPanel implements ActionListener
                
         }
 
-        /** Returns an ImageIcon, or null if the path was invalid. */
-        protected static ImageIcon createImageIcon(String path) {
-            java.net.URL imgURL = Window.class.getResource(path);
-            if (imgURL != null) {
-                return new ImageIcon(imgURL);
-            } else {
-                System.err.println("Couldn't find file: " + path);
-                return null;
-            }
-        }
+     
 
         /**
          * Create the GUI and show it.  For thread safety,

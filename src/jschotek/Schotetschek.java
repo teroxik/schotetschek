@@ -5,7 +5,7 @@ import javax.swing.UIManager;
 
 public class Schotetschek {
 
-	
+	//static BasicService basicService = null;
 
 		/**
 		 * @param args
