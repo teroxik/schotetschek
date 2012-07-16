@@ -2,9 +2,9 @@ package jschotek;
 
 import javax.swing.ImageIcon;
 
-public class Constants {
+public class Consts {
 
-	private Constants(){};
+	private Consts(){};
 	
 	public static final String SCHOTEK_PATH = "schotek.gif";
 	public static final String RES_PATH = "Res";

@@ -34,7 +34,7 @@ public class Window extends JPanel implements ActionListener
 	 */
 	private static final long serialVersionUID = -5178424810108623955L;
 	private Map<Integer, String> messages;
-	private ResourceBundle res = ResourceBundle.getBundle("jschotek/"+Constants.RES_PATH);
+	private ResourceBundle res = ResourceBundle.getBundle("jschotek/"+Consts.RES_PATH);
 	
 	private JLabel imageLabel;
 	private JButton changeSchotek;
@@ -78,8 +78,8 @@ public class Window extends JPanel implements ActionListener
     		}
     	}
     	
-    	ota = Constants.createImageIcon("mejra_1.jpg");
-    	schotek = Constants.createImageIcon(Constants.SCHOTEK_PATH);
+    	ota = Consts.createImageIcon("mejra_1.jpg");
+    	schotek = Consts.createImageIcon(Consts.SCHOTEK_PATH);
     	imageLabel = new JLabel(ota);
  
          changeSchotek = new JButton("Do it like mejra!!");
@@ -110,18 +110,18 @@ public class Window extends JPanel implements ActionListener
             	if((switcher%3)==0) {
             		//imageLabel.setIcon(schotek);
             		changeSchotek.setText("Do it like mejra!!");
-            		imageLabel.setIcon( Constants.createImageIcon("mejra_"+((switcher%8)+1)+".jpg"));
+            		imageLabel.setIcon( Consts.createImageIcon("mejra_"+((switcher%8)+1)+".jpg"));
                 	
             	}
             	else if((switcher%3)==1) {
             		
             		changeSchotek.setText("Do it like ota!!");
-            		imageLabel.setIcon( Constants.createImageIcon("oto"+((switcher%4)+1)+".jpg"));
+            		imageLabel.setIcon( Consts.createImageIcon("oto"+((switcher%4)+1)+".jpg"));
             	}
             	else if((switcher%3)==2)
             	{
             		changeSchotek.setText("Do it like schotetschek!!");
-            		imageLabel.setIcon( Constants.createImageIcon("schotek_"+((switcher%10)+1)+".gif"));
+            		imageLabel.setIcon( Consts.createImageIcon("schotek_"+((switcher%10)+1)+".gif"));
             	}
             	imageLabel.repaint();
             	switcher++;
