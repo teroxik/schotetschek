@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<jnlp spec="1.0+" codebase="http://vetrovec.eu/" href="Schotetschek.jnlp">
+	<information>
+		<title>JSchotetschek</title>
+		<vendor>Schotetschci</vendor>
+		<homepage href="http://vetrovec.eu/" />
+		<description>Funny app</description>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="/build/jar/JSchotetschek.jar" />
+	</resources>
+	<application-desc main-class="jschotek.Schotetschek" />
+</jnlp>
