@@ -2,6 +2,8 @@ package jschotek;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
+import jschotek.view.CustomImageEditorPanel;
+
 
 public class Schotetschek {
 
@@ -19,7 +21,9 @@ public class Schotetschek {
 	            public void run() {
 	                //Turn off metal's use of bold fonts
 	                UIManager.put("swing.boldMetal", Boolean.FALSE); 
-	                Window.createAndShowGUI();
+	               // Window.createAndShowGUI();
+	               CustomImageEditorPanel.createAndShowGUI();
+	            
 	            }
 	        });
 		}

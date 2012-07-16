@@ -29,6 +29,10 @@ import java.awt.event.*;
 public class Window extends JPanel implements ActionListener
 {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5178424810108623955L;
 	private Map<Integer, String> messages;
 	private ResourceBundle res = ResourceBundle.getBundle("jschotek/"+Constants.RES_PATH);
 	
