@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import javax.swing.ImageIcon;
 
+import certtester.Consts;
+
 public class SimpleTest {
  
 	

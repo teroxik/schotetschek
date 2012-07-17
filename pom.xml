@@ -14,7 +14,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>jschotek.Schotetschek</mainClass>
+							<mainClass>certtester.CertTester</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

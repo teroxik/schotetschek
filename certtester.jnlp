@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<jnlp spec="1.0+" codebase="http://vetrovec.eu/" href="Schotetschek.jnlp">
+<jnlp spec="1.0+" codebase="http://vetrovec.eu/" href="certtester.jnlp">
 	<information>
-		<title>JSchotetschek</title>
+		<title>CertTester</title>
 		<vendor>Schotetschci</vendor>
 		<homepage href="http://vetrovec.eu/" />
 		<description>Funny app</description>
@@ -11,7 +11,7 @@
 	</security>
 	<resources>
 		<j2se version="1.6+" />
-		<jar href="schotetschek-0.0.1-SNAPSHOT-jar-with-dependencies.jar" />
+		<jar href="certtester-0.0.1-SNAPSHOT-jar-with-dependencies.jar" />
 	</resources>
-	<application-desc main-class="jschotek.Schotetschek" />
+	<application-desc main-class="certtester.CertTester" />
 </jnlp>

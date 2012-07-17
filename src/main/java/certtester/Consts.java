@@ -1,4 +1,4 @@
-package jschotek;
+package certtester;
 
 import javax.swing.ImageIcon;
 
@@ -13,7 +13,7 @@ public class Consts {
 	
 	   /** Returns an ImageIcon, or null if the path was invalid. */
     public static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = Window.class.getResource(path);
+        java.net.URL imgURL = MainWindow.class.getResource(path);
         if (imgURL != null) {
             return new ImageIcon(imgURL);
         } else {
